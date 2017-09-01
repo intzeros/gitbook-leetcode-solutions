@@ -1,5 +1,5 @@
 # gitbook-leetcode-solutions
-GitBook for LeetCode solutions.
+GitBook for [LeetCode](https://leetcode.com/problemset/all/) solutions.
 
 See demo: [http://lszero.com/leetcode/](http://lszero.com/leetcode/)
 
