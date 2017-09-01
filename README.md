@@ -1,7 +1,7 @@
 # gitbook-leetcode-solutions
 GitBook for LeetCode solutions.
 
-See demo: [http://blog.lszero.com/](http://blog.lszero.com/)
+See demo: [http://lszero.com/leetcode/](http://lszero.com/leetcode/)
 
 ## Setup
 
