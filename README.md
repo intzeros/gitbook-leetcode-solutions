@@ -1,19 +1,16 @@
 # gitbook-leetcode-solutions
-Solutions for leetcode.
+GitBook for LeetCode solutions.
 
-## Setup and Installation of GitBook
+See demo: [http://blog.lszero.com/](http://blog.lszero.com/)
+
+## Setup
 
 ```shell
 $ npm install gitbook-cli -g
-$ gitbook init ./directory
-$ gitbook serve
-$ gitbook build
-```
-
-## Configue
-
-```shell
 $ git clone https://github.com/lszero/gitbook-leetcode-solutions.git
-cd gitbook-leetcode-solutions
+$ cd gitbook-leetcode-solutions
+$ gitbook serve
 ```
+
+
 
