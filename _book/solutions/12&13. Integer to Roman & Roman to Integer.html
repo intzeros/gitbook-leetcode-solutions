@@ -1,0 +1,579 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>LeetCode 12&13. Integer to Roman & Roman to Integer · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="44. Wildcard Matching.html" />
+    
+    
+    <link rel="prev" href="11. Container With Most Water.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../favorite_list.html">
+            
+                <a href="../favorite_list.html">
+            
+                    
+                    Favorite list
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1. Two Sum.html">
+            
+                <a href="1. Two Sum.html">
+            
+                    
+                    LeetCode 1. Two Sum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="2. Add Two Numbers.html">
+            
+                <a href="2. Add Two Numbers.html">
+            
+                    
+                    LeetCode 2. Add Two Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="3. Longest Substring Without Repeating Characters.html">
+            
+                <a href="3. Longest Substring Without Repeating Characters.html">
+            
+                    
+                    LeetCode 3. Longest Substring Without Repeating Characters
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="4. Median of Two Sorted Arrays.html">
+            
+                <a href="4. Median of Two Sorted Arrays.html">
+            
+                    
+                    LeetCode 4. Median of Two Sorted Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="5. Longest Palindromic Substring.html">
+            
+                <a href="5. Longest Palindromic Substring.html">
+            
+                    
+                    LeetCode 5. Longest Palindromic Substring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="6. ZigZag Conversion.html">
+            
+                <a href="6. ZigZag Conversion.html">
+            
+                    
+                    LeetCode 6. ZigZag Conversion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="7. Reverse Integer.html">
+            
+                <a href="7. Reverse Integer.html">
+            
+                    
+                    LeetCode 7. Reverse Integer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="8. String to Integer-atoi.html">
+            
+                <a href="8. String to Integer-atoi.html">
+            
+                    
+                    LeetCode 8. String to Integer (atoi)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="9. Palindrome Number.html">
+            
+                <a href="9. Palindrome Number.html">
+            
+                    
+                    LeetCode 9. Palindrome Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="10. Regular Expression Matching.html">
+            
+                <a href="10. Regular Expression Matching.html">
+            
+                    
+                    LeetCode 10. Regular Expression Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="11. Container With Most Water.html">
+            
+                <a href="11. Container With Most Water.html">
+            
+                    
+                    LeetCode 11. Container With Most Water
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.12" data-path="12&13. Integer to Roman & Roman to Integer.html">
+            
+                <a href="12&13. Integer to Roman & Roman to Integer.html">
+            
+                    
+                    LeetCode 12&13. Integer to Roman & Roman to Integer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="44. Wildcard Matching.html">
+            
+                <a href="44. Wildcard Matching.html">
+            
+                    
+                    LeetCode 44. Wildcard Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="46&47. Permutations & Permutations II.html">
+            
+                <a href="46&47. Permutations & Permutations II.html">
+            
+                    
+                    LeetCode 46&47. Permutations & Permutations II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="146. LRU Cache.html">
+            
+                <a href="146. LRU Cache.html">
+            
+                    
+                    LeetCode 146. LRU Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" >
+            
+                <span>
+            
+                    
+                    ​​
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >LeetCode 12&13. Integer to Roman & Roman to Integer</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="leetcode-12-integer-to-roman">LeetCode 12. Integer to Roman</h2>
+<p>Given an integer, convert it to a roman numeral.</p>
+<p>Input is guaranteed to be within the range from 1 to 3999.</p>
+<p><br></p>
+<p>&#x7F57;&#x9A6C;&#x6570;&#x5B57;&#x91C7;&#x7528;&#x4E03;&#x4E2A;&#x7F57;&#x9A6C;&#x5B57;&#x6BCD;&#x4F5C;&#x6570;&#x5B57;&#xFF0C;&#x5373; I&#xFF08;1&#xFF09;&#x3001;V&#xFF08;5&#xFF09;&#x3001;X&#xFF08;10&#xFF09;&#x3001;L&#xFF08;50&#xFF09;&#x3001;C&#xFF08;100&#xFF09;&#x3001;D&#xFF08;500&#xFF09;&#x3001;M&#xFF08;1000&#xFF09;&#x3002;&#x8BB0;&#x6570;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#xFF08;1&#xFF09;&#x76F8;&#x540C;&#x7684;&#x6570;&#x5B57;&#x8FDE;&#x5199;&#xFF0C;&#x6240;&#x8868;&#x793A;&#x7684;&#x6570;&#x7B49;&#x4E8E;&#x8FD9;&#x4E9B;&#x6570;&#x5B57;&#x76F8;&#x52A0;&#x5F97;&#x5230;&#x7684;&#x6570;&#xFF0C;&#x5982; &#x2162;=3&#xFF1B;</p>
+<p>&#xFF08;2&#xFF09;&#x5C0F;&#x7684;&#x6570;&#x5B57;&#x5728;&#x5927;&#x7684;&#x6570;&#x5B57;&#x7684;&#x53F3;&#x8FB9;&#xFF0C;&#x6240;&#x8868;&#x793A;&#x7684;&#x6570;&#x7B49;&#x4E8E;&#x8FD9;&#x4E9B;&#x6570;&#x5B57;&#x76F8;&#x52A0;&#x5F97;&#x5230;&#x7684;&#x6570;&#xFF0C;&#x5982; &#x2167;=8&#x3001;&#x216B;=12&#xFF1B;</p>
+<p>&#xFF08;3&#xFF09;&#x5C0F;&#x7684;&#x6570;&#x5B57;&#xFF08;&#x9650;&#x4E8E; &#x2160;&#x3001;X &#x548C; C&#xFF09;&#x5728;&#x5927;&#x7684;&#x6570;&#x5B57;&#x7684;&#x5DE6;&#x8FB9;&#xFF0C;&#x6240;&#x8868;&#x793A;&#x7684;&#x6570;&#x7B49;&#x4E8E;&#x5927;&#x6570;&#x51CF;&#x5C0F;&#x6570;&#x5F97;&#x5230;&#x7684;&#x6570;&#xFF0C;&#x5982; &#x2163;=4&#x3001;&#x2168;=9. &#x4E0D;&#x8FC7;&#x50CF;99&#xFF0C;&#x4E0D;&#x80FD;&#x8868;&#x793A;&#x4E3A;IC (100-1)&#xFF0C;&#x800C;&#x662F;XCIX (100-10+10-1).</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>299</th>
+<th>499</th>
+<th>599</th>
+<th>899</th>
+<th>999</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CC XCIX</td>
+<td>CD XCIX</td>
+<td>D XCIX</td>
+<td>DCCC XCIX</td>
+<td>CM XCIX</td>
+</tr>
+<tr>
+<td>200+99</td>
+<td>(500-100)+99</td>
+<td>500+99</td>
+<td>(500+300)+99</td>
+<td>(1000-100)+99</td>
+</tr>
+</tbody>
+</table>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    string C<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;M&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;D&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;C&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;L&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;X&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;V&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;I&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span>  D<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">5000</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span>  <span class="token number">10</span><span class="token punctuation">,</span>  <span class="token number">5</span><span class="token punctuation">,</span>   <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    string <span class="token function">intToRoman</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        string ans <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">7</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> a <span class="token operator">=</span> num <span class="token operator">/</span> D<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> D<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">-</span> num <span class="token operator">&lt;=</span> D<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                ans <span class="token operator">+</span><span class="token operator">=</span> C<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> C<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                num <span class="token operator">-</span><span class="token operator">=</span> <span class="token punctuation">(</span>D<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">-</span> D<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>i<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> D<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">-</span> num <span class="token operator">&lt;=</span> D<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                ans <span class="token operator">+</span><span class="token operator">=</span> C<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> C<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                num <span class="token operator">-</span><span class="token operator">=</span> <span class="token punctuation">(</span>D<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">-</span> D<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                <span class="token keyword">while</span><span class="token punctuation">(</span>a<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    ans <span class="token operator">+</span><span class="token operator">=</span> C<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    num <span class="token operator">-</span><span class="token operator">=</span> D<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x6211;&#x5199;&#x7684;&#x89E3;&#x6CD5;&#x9700;&#x8981;&#x5C06;40&#x548C;90&#x5206;&#x5F00;&#x5904;&#x7406;&#xFF0C;&#x6240;&#x4EE5;&#x7528;&#x4E86;(i&amp;1)&#x3002;</p>
+<p>&#x7F51;&#x4E0A;&#x770B;&#x5230;&#x66F4;&#x7B80;&#x7684;&#x89E3;&#x6CD5;&#xFF0C;&#x4E0D;&#x540C;&#x4E8E;&#x4E0A;&#x9762;&#x7684;C[]&#xFF0C;D[]&#xFF1A;</p>
+<pre><code>string C[13] = {&quot;M&quot;, &quot;CM&quot;, &quot;D&quot;, &quot;CD&quot;,  &quot;C&quot;, &quot;XC&quot;, &quot;L&quot;, &quot;XL&quot;, &quot;X&quot;, &quot;IX&quot;, &quot;V&quot;, &quot;IV&quot;, &quot;I&quot;};
+int    D[13] = {1000, 900, 500, 400,   100,  90,   50,  40,   10,  9,    5,   4,    1 };
+</code></pre><pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    string C<span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;M&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;CM&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;D&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;CD&quot;</span><span class="token punctuation">,</span>  <span class="token string">&quot;C&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;XC&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;L&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;XL&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;X&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;IX&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;V&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;IV&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;I&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span>    D<span class="token punctuation">[</span><span class="token number">13</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token number">900</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">,</span>   <span class="token number">100</span><span class="token punctuation">,</span>  <span class="token number">90</span><span class="token punctuation">,</span>   <span class="token number">50</span><span class="token punctuation">,</span>  <span class="token number">40</span><span class="token punctuation">,</span>   <span class="token number">10</span><span class="token punctuation">,</span>  <span class="token number">9</span><span class="token punctuation">,</span>    <span class="token number">5</span><span class="token punctuation">,</span>   <span class="token number">4</span><span class="token punctuation">,</span>    <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    string <span class="token function">intToRoman</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        string ans <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">13</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>num <span class="token operator">&gt;=</span> D<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                num <span class="token operator">-</span><span class="token operator">=</span> D<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                ans <span class="token operator">+</span><span class="token operator">=</span> C<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p><br></p>
+<h2 id="leetcode-13-roman-to-integer">LeetCode 13. Roman to Integer</h2>
+<p>Given a roman numeral, convert it to an integer.</p>
+<p>Input is guaranteed to be within the range from 1 to 3999.</p>
+<p><br></p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">getVal</span><span class="token punctuation">(</span><span class="token keyword">char</span> c<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">switch</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token string">&apos;M&apos;</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&apos;D&apos;</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">500</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&apos;C&apos;</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">100</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&apos;L&apos;</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">50</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&apos;X&apos;</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&apos;V&apos;</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">5</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token string">&apos;I&apos;</span><span class="token operator">:</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> <span class="token function">romanToInt</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span> <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> <span class="token function">getVal</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token function">getVal</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                ans <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">getVal</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">getVal</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                i<span class="token operator">+</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                ans <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">getVal</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                i<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="11. Container With Most Water.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 11. Container With Most Water">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="44. Wildcard Matching.html" class="navigation navigation-next " aria-label="Next page: LeetCode 44. Wildcard Matching">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 12&13. Integer to Roman & Roman to Integer","level":"2.12","depth":1,"next":{"title":"LeetCode 44. Wildcard Matching","level":"2.13","depth":1,"path":"solutions/44. Wildcard Matching.md","ref":"solutions/44. Wildcard Matching.md","articles":[]},"previous":{"title":"LeetCode 11. Container With Most Water","level":"2.11","depth":1,"path":"solutions/11. Container With Most Water.md","ref":"solutions/11. Container With Most Water.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"livereload":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/12&13. Integer to Roman & Roman to Integer.md","mtime":"2017-09-11T14:22:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-11T14:27:01.409Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
