@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode 6. ZigZag Conversion · GitBook</title>
+        <title>LeetCode 18. 4Sum · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="7. Reverse Integer.html" />
+    <link rel="next" href="44. Wildcard Matching.html" />
     
     
-    <link rel="prev" href="5. Longest Palindromic Substring.html" />
+    <link rel="prev" href="17. Letter Combinations of a Phone Number.html" />
     
 
     </head>
@@ -189,7 +189,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.6" data-path="6. ZigZag Conversion.html">
+        <li class="chapter " data-level="2.6" data-path="6. ZigZag Conversion.html">
             
                 <a href="6. ZigZag Conversion.html">
             
@@ -332,7 +332,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.17" data-path="18. 4Sum.html">
+        <li class="chapter active" data-level="2.17" data-path="18. 4Sum.html">
             
                 <a href="18. 4Sum.html">
             
@@ -427,7 +427,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode 6. ZigZag Conversion</a>
+        <a href=".." >LeetCode 18. 4Sum</a>
     </h1>
 </div>
 
@@ -442,65 +442,48 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="leetcode-6-zigzag-conversion">LeetCode 6. ZigZag Conversion</h2>
-<p>The string <code>&quot;PAYPALISHIRING&quot;</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
-<pre><code>P   A   H   N
-A P L S I I G
-Y   I   R
-</code></pre><p>And then read line by line: </p>
-<pre><code>&quot;PAHNAPLSIIGYIR&quot;
-</code></pre><p>Write the code that will take a string and make this conversion given a number of rows:</p>
-<pre><code>string convert(string text, int nRows);
-</code></pre><pre><code>convert(&quot;PAYPALISHIRING&quot;, 3)
-</code></pre><p> should return </p>
-<pre><code>&quot;PAHNAPLSIIGYIR&quot;
-</code></pre><p>.<br></p>
-<p>&#x4E00;&#x5F00;&#x59CB;&#x6211;&#x7528;&#x7684;&#x662F;&#x5468;&#x671F;&#x6027;&#x3002;<code>T = numRows*2-2</code>, &#x53E6;&#x5916;&#x4E2D;&#x95F4;&#x884C;&#x8FD8;&#x8981;&#x591A;&#x52A0;&#x4E00;&#x4E2A;<code>s[idx + T-2*r]</code>&#x3002;</p>
+                                <h2 id="leetcode-18-4sum">LeetCode 18. 4Sum</h2>
+<p>Given an array <em>S</em> of <em>n</em> integers, are there elements <em>a</em>, <em>b</em>, <em>c</em>, and <em>d</em> in <em>S</em> such that <em>a</em> + <em>b</em> + <em>c</em> + <em>d</em> = target? Find all unique quadruplets in the array which gives the sum of target.</p>
+<p><strong>Note:</strong> The solution set must not contain duplicate quadruplets.</p>
+<pre><code>For example, given array S = [1, 0, -1, 0, -2, 2], and target = 0.
+
+A solution set is:
+[
+  [-1,  0, 0, 1],
+  [-2, -1, 1, 2],
+  [-2,  0, 0, 2]
+]
+</code></pre><p><br></p>
+<p>O(n^3) :</p>
 <pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    string <span class="token function">convert</span><span class="token punctuation">(</span>string s<span class="token punctuation">,</span> <span class="token keyword">int</span> numRows<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>numRows <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> <span class="token function">fourSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">sort</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> rst<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">&gt;</span> i<span class="token operator">+</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>j<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x7684; j &gt; i+1, &#x800C;&#x975E; j &gt; 0</span>
 
-        <span class="token keyword">int</span> n <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> T <span class="token operator">=</span> <span class="token punctuation">(</span>numRows<span class="token operator">&lt;&lt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">;</span>
-        string rst<span class="token punctuation">;</span>
+                <span class="token keyword">int</span> le <span class="token operator">=</span> j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> ri <span class="token operator">=</span> n<span class="token number">-1</span><span class="token punctuation">;</span>
+                <span class="token keyword">while</span><span class="token punctuation">(</span>le <span class="token operator">&lt;</span> ri<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">int</span> sum <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>le<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>ri<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>sum <span class="token operator">==</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> vec<span class="token punctuation">;</span>
+                        vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>le<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>ri<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        rst<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>vec<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> r <span class="token operator">&lt;</span> numRows<span class="token punctuation">;</span> r<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">int</span> idx <span class="token operator">=</span> r<span class="token punctuation">;</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span>idx <span class="token operator">&lt;</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                rst <span class="token operator">+</span><span class="token operator">=</span> s<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>r <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> r <span class="token operator">!=</span> numRows<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    <span class="token keyword">int</span> idx2 <span class="token operator">=</span> idx <span class="token operator">+</span> T<span class="token number">-2</span><span class="token operator">*</span>r<span class="token punctuation">;</span>
-                    <span class="token keyword">if</span><span class="token punctuation">(</span>idx2 <span class="token operator">&lt;</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                        rst <span class="token operator">+</span><span class="token operator">=</span> s<span class="token punctuation">[</span>idx2<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
+                        <span class="token keyword">while</span><span class="token punctuation">(</span>le <span class="token operator">&lt;</span> ri <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>le<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>le<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> le<span class="token operator">++</span><span class="token punctuation">;</span>
+                        <span class="token keyword">while</span><span class="token punctuation">(</span>le <span class="token operator">&lt;</span> ri <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>ri<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>ri<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> ri<span class="token operator">--</span><span class="token punctuation">;</span>
+                        le<span class="token operator">++</span><span class="token punctuation">,</span> ri<span class="token operator">--</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>sum <span class="token operator">&lt;</span> target<span class="token punctuation">)</span> le<span class="token operator">++</span><span class="token punctuation">;</span>
+                    <span class="token keyword">else</span> ri<span class="token operator">--</span><span class="token punctuation">;</span>
                 <span class="token punctuation">}</span>
-                idx <span class="token operator">+</span><span class="token operator">=</span> T<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
-<p><br></p>
-<p>&#x770B;&#x5230; leetcode discuss&#x4E00;&#x79CD;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x6CD5;&#x3002;</p>
-<p>&#x628A;&#x6BCF;&#x4E00;&#x884C;&#x7684;&#x904D;&#x5386;&#x7ED3;&#x679C;&#x9996;&#x5148;&#x653E;&#x5230; vector<string> &#x4E2D;&#x3002;&#x987A;&#x5E8F;&#x904D;&#x5386;&#x5B57;&#x7B26;&#x4E32;s&#xFF0C;&#x5C06;&#x5F53;&#x524D;&#x5B57;&#x7B26;&#x6DFB;&#x52A0;&#x5230;&#x5BF9;&#x5E94;&#x884C;&#x7684;vec[i]&#x4E2D;&#x3002;</string></p>
-<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    string <span class="token function">convert</span><span class="token punctuation">(</span>string s<span class="token punctuation">,</span> <span class="token keyword">int</span> numRows<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        vector<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span> <span class="token function">vec</span><span class="token punctuation">(</span>numRows<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> n <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>k <span class="token operator">&lt;</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> i <span class="token operator">&lt;</span> numRows<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//&#x7AD6;&#x76F4;&#x5411;&#x4E0B;&#x65B9;&#x5411;</span>
-                vec<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> s<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> numRows<span class="token number">-2</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> i <span class="token operator">&gt;=</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//&#x659C;&#x5411;&#x4E0A;&#x65B9;&#x5411;</span>
-                vec<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> s<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        string rst<span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numRows<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            rst <span class="token operator">+</span><span class="token operator">=</span> vec<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -533,12 +516,12 @@ Y   I   R
 
             
                 
-                <a href="5. Longest Palindromic Substring.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 5. Longest Palindromic Substring">
+                <a href="17. Letter Combinations of a Phone Number.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 17. Letter Combinations of a Phone Number">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="7. Reverse Integer.html" class="navigation navigation-next " aria-label="Next page: LeetCode 7. Reverse Integer">
+                <a href="44. Wildcard Matching.html" class="navigation navigation-next " aria-label="Next page: LeetCode 44. Wildcard Matching">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -549,7 +532,7 @@ Y   I   R
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode 6. ZigZag Conversion","level":"2.6","depth":1,"next":{"title":"LeetCode 7. Reverse Integer","level":"2.7","depth":1,"path":"solutions/7. Reverse Integer.md","ref":"solutions/7. Reverse Integer.md","articles":[]},"previous":{"title":"LeetCode 5. Longest Palindromic Substring","level":"2.5","depth":1,"path":"solutions/5. Longest Palindromic Substring.md","ref":"solutions/5. Longest Palindromic Substring.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/6. ZigZag Conversion.md","mtime":"2017-09-08T08:27:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-11T15:58:05.434Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 18. 4Sum","level":"2.17","depth":1,"next":{"title":"LeetCode 44. Wildcard Matching","level":"2.18","depth":1,"path":"solutions/44. Wildcard Matching.md","ref":"solutions/44. Wildcard Matching.md","articles":[]},"previous":{"title":"LeetCode 17. Letter Combinations of a Phone Number","level":"2.16","depth":1,"path":"solutions/17. Letter Combinations of a Phone Number.md","ref":"solutions/17. Letter Combinations of a Phone Number.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/18. 4Sum.md","mtime":"2017-09-11T15:38:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-11T15:58:05.434Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

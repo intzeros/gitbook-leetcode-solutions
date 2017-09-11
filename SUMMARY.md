@@ -32,6 +32,14 @@
 
 * [LeetCode 14. Longest Common Prefix](solutions/14. Longest Common Prefix.md)
 
+* [LeetCode 15. 3Sum](solutions/15. 3Sum.md)
+
+* [LeetCode 16. 3Sum Closest](solutions/16. 3Sum Closest.md)
+
+* [LeetCode 17. Letter Combinations of a Phone Number](solutions/17. Letter Combinations of a Phone Number.md)
+
+* [LeetCode 18. 4Sum](solutions/18. 4Sum.md)
+
 * [LeetCode 44. Wildcard Matching](solutions/44. Wildcard Matching.md)
 
 * [LeetCode 46&47. Permutations & Permutations II](solutions/46&47. Permutations & Permutations II.md)
