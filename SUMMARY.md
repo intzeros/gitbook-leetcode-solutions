@@ -40,13 +40,35 @@
 
 * [LeetCode 18. 4Sum](solutions/18. 4Sum.md)
 
+* [LeetCode 19. Remove Nth Node From End of List](solutions/19. Remove Nth Node From End of List.md)
+
+* [LeetCode 20. Valid Parentheses](solutions/20. Valid Parentheses.md)
+
+* [LeetCode 21. Merge Two Sorted Lists](solutions/21. Merge Two Sorted Lists.md)
+
+* [LeetCode 22. Generate Parentheses](solutions/22. Generate Parentheses.md)
+
+* [LeetCode 23. Merge k Sorted Lists](solutions/23. Merge k Sorted Lists.md)
+
+* [LeetCode 24. Swap Nodes in Pairs](solutions/24. Swap Nodes in Pairs.md)
+
+* [LeetCode 25. Reverse Nodes in k-Group](solutions/25. Reverse Nodes in k-Group.md)
+
+* [LeetCode 26&80. Remove Duplicates from Sorted Array](solutions/26&80. Remove Duplicates from Sorted Array.md)
+
+* [LeetCode 27. Remove Element](solutions/27. Remove Element.md)
+
+* [LeetCode 28. Implement strStr()](solutions/28. Implement strStr.md)
+
+* [LeetCode 29. Divide Two Integers](solutions/29. Divide Two Integers.md)
+
 * [LeetCode 44. Wildcard Matching](solutions/44. Wildcard Matching.md)
 
 * [LeetCode 46&47. Permutations & Permutations II](solutions/46&47. Permutations & Permutations II.md)
 
 * [LeetCode 146. LRU Cache](solutions/146. LRU Cache.md)
 
-* ​
+  ​
 
   ​
 

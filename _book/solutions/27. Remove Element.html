@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode 14. Longest Common Prefix · GitBook</title>
+        <title>LeetCode 27. Remove Element · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="15. 3Sum.html" />
+    <link rel="next" href="28. Implement strStr.html" />
     
     
-    <link rel="prev" href="12&13. Integer to Roman & Roman to Integer.html" />
+    <link rel="prev" href="26&80. Remove Duplicates from Sorted Array.html" />
     
 
     </head>
@@ -280,7 +280,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.13" data-path="14. Longest Common Prefix.html">
+        <li class="chapter " data-level="2.13" data-path="14. Longest Common Prefix.html">
             
                 <a href="14. Longest Common Prefix.html">
             
@@ -449,7 +449,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.26" data-path="27. Remove Element.html">
+        <li class="chapter active" data-level="2.26" data-path="27. Remove Element.html">
             
                 <a href="27. Remove Element.html">
             
@@ -557,7 +557,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode 14. Longest Common Prefix</a>
+        <a href=".." >LeetCode 27. Remove Element</a>
     </h1>
 </div>
 
@@ -572,22 +572,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="leetcode-14-longest-common-prefix">LeetCode 14. Longest Common Prefix</h2>
-<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+                                <h2 id="leetcode-27-remove-element">LeetCode 27. Remove Element</h2>
+<p>Given an array and a value, remove all instances of that value in place and return the new length.</p>
+<p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
+<p>The order of elements can be changed. It doesn&apos;t matter what you leave beyond the new length.</p>
+<p><strong>Example:</strong>
+Given input array <em>nums</em> = <code>[3,2,2,3]</code>, <em>val</em> = <code>3</code></p>
+<p>Your function should return length = 2, with the first two elements of <em>nums</em> being 2.</p>
 <p><br></p>
 <pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    string <span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span><span class="token operator">&amp;</span> strs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>strs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> strs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> strs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">!=</span> strs<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    <span class="token keyword">return</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> <span class="token function">removeElement</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> val<span class="token punctuation">)</span> k<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> nums<span class="token punctuation">[</span>i<span class="token operator">-</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> k<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
@@ -618,12 +619,12 @@
 
             
                 
-                <a href="12&13. Integer to Roman & Roman to Integer.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 12&13. Integer to Roman & Roman to Integer">
+                <a href="26&80. Remove Duplicates from Sorted Array.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 26&80. Remove Duplicates from Sorted Array">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="15. 3Sum.html" class="navigation navigation-next " aria-label="Next page: LeetCode 15. 3Sum">
+                <a href="28. Implement strStr.html" class="navigation navigation-next " aria-label="Next page: LeetCode 28. Implement strStr()">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -634,7 +635,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode 14. Longest Common Prefix","level":"2.13","depth":1,"next":{"title":"LeetCode 15. 3Sum","level":"2.14","depth":1,"path":"solutions/15. 3Sum.md","ref":"solutions/15. 3Sum.md","articles":[]},"previous":{"title":"LeetCode 12&13. Integer to Roman & Roman to Integer","level":"2.12","depth":1,"path":"solutions/12&13. Integer to Roman & Roman to Integer.md","ref":"solutions/12&13. Integer to Roman & Roman to Integer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/14. Longest Common Prefix.md","mtime":"2017-09-11T14:47:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-13T11:45:58.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 27. Remove Element","level":"2.26","depth":1,"next":{"title":"LeetCode 28. Implement strStr()","level":"2.27","depth":1,"path":"solutions/28. Implement strStr.md","ref":"solutions/28. Implement strStr.md","articles":[]},"previous":{"title":"LeetCode 26&80. Remove Duplicates from Sorted Array","level":"2.25","depth":1,"path":"solutions/26&80. Remove Duplicates from Sorted Array.md","ref":"solutions/26&80. Remove Duplicates from Sorted Array.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/27. Remove Element.md","mtime":"2017-09-12T07:58:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-13T11:45:58.201Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

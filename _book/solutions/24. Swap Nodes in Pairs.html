@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode 14. Longest Common Prefix · GitBook</title>
+        <title>LeetCode 24. Swap Nodes in Pairs · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="15. 3Sum.html" />
+    <link rel="next" href="25. Reverse Nodes in k-Group.html" />
     
     
-    <link rel="prev" href="12&13. Integer to Roman & Roman to Integer.html" />
+    <link rel="prev" href="23. Merge k Sorted Lists.html" />
     
 
     </head>
@@ -280,7 +280,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.13" data-path="14. Longest Common Prefix.html">
+        <li class="chapter " data-level="2.13" data-path="14. Longest Common Prefix.html">
             
                 <a href="14. Longest Common Prefix.html">
             
@@ -410,7 +410,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.23" data-path="24. Swap Nodes in Pairs.html">
+        <li class="chapter active" data-level="2.23" data-path="24. Swap Nodes in Pairs.html">
             
                 <a href="24. Swap Nodes in Pairs.html">
             
@@ -557,7 +557,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode 14. Longest Common Prefix</a>
+        <a href=".." >LeetCode 24. Swap Nodes in Pairs</a>
     </h1>
 </div>
 
@@ -572,22 +572,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="leetcode-14-longest-common-prefix">LeetCode 14. Longest Common Prefix</h2>
-<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+                                <h2 id="leetcode-24-swap-nodes-in-pairs">LeetCode 24. Swap Nodes in Pairs</h2>
+<p>Given a linked list, swap every two adjacent nodes and return its head.</p>
+<p>For example,
+Given <code>1-&gt;2-&gt;3-&gt;4</code>, you should return the list as <code>2-&gt;1-&gt;4-&gt;3</code>.</p>
+<p>Your algorithm should use only constant space. You may <strong>not</strong> modify the values in the list, only nodes itself can be changed.</p>
 <p><br></p>
 <pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    string <span class="token function">longestCommonPrefix</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span><span class="token operator">&amp;</span> strs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>strs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> strs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> strs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">!=</span> strs<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    <span class="token keyword">return</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
+    ListNode<span class="token operator">*</span> <span class="token function">swapPairs</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ListNode <span class="token operator">*</span>H <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">*</span>pre <span class="token operator">=</span> H<span class="token punctuation">,</span> <span class="token operator">*</span>p<span class="token punctuation">,</span> <span class="token operator">*</span>q<span class="token punctuation">;</span>
+        H<span class="token operator">-</span><span class="token operator">&gt;</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>pre<span class="token operator">-</span><span class="token operator">&gt;</span>next <span class="token operator">&amp;&amp;</span> pre<span class="token operator">-</span><span class="token operator">&gt;</span>next<span class="token operator">-</span><span class="token operator">&gt;</span>next<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            p <span class="token operator">=</span> pre<span class="token operator">-</span><span class="token operator">&gt;</span>next<span class="token punctuation">;</span>
+            q <span class="token operator">=</span> pre<span class="token operator">-</span><span class="token operator">&gt;</span>next<span class="token operator">-</span><span class="token operator">&gt;</span>next<span class="token punctuation">;</span>
+            p<span class="token operator">-</span><span class="token operator">&gt;</span>next <span class="token operator">=</span> q<span class="token operator">-</span><span class="token operator">&gt;</span>next<span class="token punctuation">;</span>
+            pre<span class="token operator">-</span><span class="token operator">&gt;</span>next <span class="token operator">=</span> q<span class="token punctuation">;</span>
+            q<span class="token operator">-</span><span class="token operator">&gt;</span>next <span class="token operator">=</span> p<span class="token punctuation">;</span>
+            pre <span class="token operator">=</span> p<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> strs<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> H<span class="token operator">-</span><span class="token operator">&gt;</span>next<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
@@ -618,12 +622,12 @@
 
             
                 
-                <a href="12&13. Integer to Roman & Roman to Integer.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 12&13. Integer to Roman & Roman to Integer">
+                <a href="23. Merge k Sorted Lists.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 23. Merge k Sorted Lists">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="15. 3Sum.html" class="navigation navigation-next " aria-label="Next page: LeetCode 15. 3Sum">
+                <a href="25. Reverse Nodes in k-Group.html" class="navigation navigation-next " aria-label="Next page: LeetCode 25. Reverse Nodes in k-Group">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -634,7 +638,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode 14. Longest Common Prefix","level":"2.13","depth":1,"next":{"title":"LeetCode 15. 3Sum","level":"2.14","depth":1,"path":"solutions/15. 3Sum.md","ref":"solutions/15. 3Sum.md","articles":[]},"previous":{"title":"LeetCode 12&13. Integer to Roman & Roman to Integer","level":"2.12","depth":1,"path":"solutions/12&13. Integer to Roman & Roman to Integer.md","ref":"solutions/12&13. Integer to Roman & Roman to Integer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/14. Longest Common Prefix.md","mtime":"2017-09-11T14:47:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-13T11:45:58.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 24. Swap Nodes in Pairs","level":"2.23","depth":1,"next":{"title":"LeetCode 25. Reverse Nodes in k-Group","level":"2.24","depth":1,"path":"solutions/25. Reverse Nodes in k-Group.md","ref":"solutions/25. Reverse Nodes in k-Group.md","articles":[]},"previous":{"title":"LeetCode 23. Merge k Sorted Lists","level":"2.22","depth":1,"path":"solutions/23. Merge k Sorted Lists.md","ref":"solutions/23. Merge k Sorted Lists.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/24. Swap Nodes in Pairs.md","mtime":"2017-09-12T03:47:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-13T11:45:58.201Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
