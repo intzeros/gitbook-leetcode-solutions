@@ -3,6 +3,7 @@
 **多做几遍：**
 
 - [LeetCode 4. Median of Two Sorted Arrays](solutions/4. Median of Two Sorted Arrays.html)
+- [LeetCode 32. Longest Valid Parentheses](solutions/32. Longest Valid Parentheses.html)
 - [LeetCode 44. Wildcard Matching](solutions/44. Wildcard Matching.html)
 
 <br>
@@ -24,7 +25,12 @@
 * [LeetCode 26&80. Remove Duplicates from Sorted Array](solutions/26&80. Remove Duplicates from Sorted Array.html)
 * [LeetCode 28. Implement strStr()](solutions/28. Implement strStr.html)
 * [LeetCode 29. Divide Two Integers](solutions/29. Divide Two Integers.html)
+* [LeetCode 30. Substring with Concatenation of All Words](solutions/30. Substring with Concatenation of All Words.html)
+* [LeetCode 31. Next Permutation](solutions/31. Next Permutation.html)
+* [LeetCode 33&81. Search in Rotated Sorted Array](solutions/33&81. Search in Rotated Sorted Array.html)
+* [LeetCode 34. Search for a Range](solutions/34. Search for a Range.html)
 * [LeetCode 46&47. Permutations & Permutations II](./solutions/46&47. Permutations & Permutations II.html)
+* [LeetCode 71. Simplify Path](solutions/71. Simplify Path.html)
 * [LeetCode 146. LRU Cache](./solutions/146. LRU Cache.html)
 
 

@@ -1,0 +1,808 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>LeetCode 34. Search for a Range · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="44. Wildcard Matching.html" />
+    
+    
+    <link rel="prev" href="33&81. Search in Rotated Sorted Array.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../favorite_list.html">
+            
+                <a href="../favorite_list.html">
+            
+                    
+                    Favorite list
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="1. Two Sum.html">
+            
+                <a href="1. Two Sum.html">
+            
+                    
+                    LeetCode 1. Two Sum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="2. Add Two Numbers.html">
+            
+                <a href="2. Add Two Numbers.html">
+            
+                    
+                    LeetCode 2. Add Two Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="3. Longest Substring Without Repeating Characters.html">
+            
+                <a href="3. Longest Substring Without Repeating Characters.html">
+            
+                    
+                    LeetCode 3. Longest Substring Without Repeating Characters
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="4. Median of Two Sorted Arrays.html">
+            
+                <a href="4. Median of Two Sorted Arrays.html">
+            
+                    
+                    LeetCode 4. Median of Two Sorted Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="5. Longest Palindromic Substring.html">
+            
+                <a href="5. Longest Palindromic Substring.html">
+            
+                    
+                    LeetCode 5. Longest Palindromic Substring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="6. ZigZag Conversion.html">
+            
+                <a href="6. ZigZag Conversion.html">
+            
+                    
+                    LeetCode 6. ZigZag Conversion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="7. Reverse Integer.html">
+            
+                <a href="7. Reverse Integer.html">
+            
+                    
+                    LeetCode 7. Reverse Integer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="8. String to Integer-atoi.html">
+            
+                <a href="8. String to Integer-atoi.html">
+            
+                    
+                    LeetCode 8. String to Integer (atoi)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="9. Palindrome Number.html">
+            
+                <a href="9. Palindrome Number.html">
+            
+                    
+                    LeetCode 9. Palindrome Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="10. Regular Expression Matching.html">
+            
+                <a href="10. Regular Expression Matching.html">
+            
+                    
+                    LeetCode 10. Regular Expression Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="11. Container With Most Water.html">
+            
+                <a href="11. Container With Most Water.html">
+            
+                    
+                    LeetCode 11. Container With Most Water
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="12&13. Integer to Roman & Roman to Integer.html">
+            
+                <a href="12&13. Integer to Roman & Roman to Integer.html">
+            
+                    
+                    LeetCode 12&13. Integer to Roman & Roman to Integer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="14. Longest Common Prefix.html">
+            
+                <a href="14. Longest Common Prefix.html">
+            
+                    
+                    LeetCode 14. Longest Common Prefix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="15. 3Sum.html">
+            
+                <a href="15. 3Sum.html">
+            
+                    
+                    LeetCode 15. 3Sum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="16. 3Sum Closest.html">
+            
+                <a href="16. 3Sum Closest.html">
+            
+                    
+                    LeetCode 16. 3Sum Closest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="17. Letter Combinations of a Phone Number.html">
+            
+                <a href="17. Letter Combinations of a Phone Number.html">
+            
+                    
+                    LeetCode 17. Letter Combinations of a Phone Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.17" data-path="18. 4Sum.html">
+            
+                <a href="18. 4Sum.html">
+            
+                    
+                    LeetCode 18. 4Sum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.18" data-path="19. Remove Nth Node From End of List.html">
+            
+                <a href="19. Remove Nth Node From End of List.html">
+            
+                    
+                    LeetCode 19. Remove Nth Node From End of List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.19" data-path="20. Valid Parentheses.html">
+            
+                <a href="20. Valid Parentheses.html">
+            
+                    
+                    LeetCode 20. Valid Parentheses
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.20" data-path="21. Merge Two Sorted Lists.html">
+            
+                <a href="21. Merge Two Sorted Lists.html">
+            
+                    
+                    LeetCode 21. Merge Two Sorted Lists
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.21" data-path="22. Generate Parentheses.html">
+            
+                <a href="22. Generate Parentheses.html">
+            
+                    
+                    LeetCode 22. Generate Parentheses
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.22" data-path="23. Merge k Sorted Lists.html">
+            
+                <a href="23. Merge k Sorted Lists.html">
+            
+                    
+                    LeetCode 23. Merge k Sorted Lists
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.23" data-path="24. Swap Nodes in Pairs.html">
+            
+                <a href="24. Swap Nodes in Pairs.html">
+            
+                    
+                    LeetCode 24. Swap Nodes in Pairs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.24" data-path="25. Reverse Nodes in k-Group.html">
+            
+                <a href="25. Reverse Nodes in k-Group.html">
+            
+                    
+                    LeetCode 25. Reverse Nodes in k-Group
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.25" data-path="26&80. Remove Duplicates from Sorted Array.html">
+            
+                <a href="26&80. Remove Duplicates from Sorted Array.html">
+            
+                    
+                    LeetCode 26&80. Remove Duplicates from Sorted Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.26" data-path="27. Remove Element.html">
+            
+                <a href="27. Remove Element.html">
+            
+                    
+                    LeetCode 27. Remove Element
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.27" data-path="28. Implement strStr.html">
+            
+                <a href="28. Implement strStr.html">
+            
+                    
+                    LeetCode 28. Implement strStr()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.28" data-path="29. Divide Two Integers.html">
+            
+                <a href="29. Divide Two Integers.html">
+            
+                    
+                    LeetCode 29. Divide Two Integers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.29" data-path="30. Substring with Concatenation of All Words.html">
+            
+                <a href="30. Substring with Concatenation of All Words.html">
+            
+                    
+                    LeetCode 30. Substring with Concatenation of All Words
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.30" data-path="31. Next Permutation.html">
+            
+                <a href="31. Next Permutation.html">
+            
+                    
+                    LeetCode 31. Next Permutation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.31" data-path="32. Longest Valid Parentheses.html">
+            
+                <a href="32. Longest Valid Parentheses.html">
+            
+                    
+                    LeetCode 32. Longest Valid Parentheses
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.32" data-path="33&81. Search in Rotated Sorted Array.html">
+            
+                <a href="33&81. Search in Rotated Sorted Array.html">
+            
+                    
+                    LeetCode 33&81. Search in Rotated Sorted Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.33" data-path="34. Search for a Range.html">
+            
+                <a href="34. Search for a Range.html">
+            
+                    
+                    LeetCode 34. Search for a Range
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.34" data-path="44. Wildcard Matching.html">
+            
+                <a href="44. Wildcard Matching.html">
+            
+                    
+                    LeetCode 44. Wildcard Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.35" data-path="46&47. Permutations & Permutations II.html">
+            
+                <a href="46&47. Permutations & Permutations II.html">
+            
+                    
+                    LeetCode 46&47. Permutations & Permutations II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.36" data-path="71. Simplify Path.html">
+            
+                <a href="71. Simplify Path.html">
+            
+                    
+                    LeetCode 71. Simplify Path
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.37" data-path="146. LRU Cache.html">
+            
+                <a href="146. LRU Cache.html">
+            
+                    
+                    LeetCode 146. LRU Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >LeetCode 34. Search for a Range</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="leetcode-34-search-for-a-range">LeetCode 34. Search for a Range</h2>
+<p>Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.</p>
+<p>Your algorithm&apos;s runtime complexity must be in the order of <em>O</em>(log <em>n</em>).</p>
+<p>If the target is not found in the array, return <code>[-1, -1]</code>.</p>
+<p>For example,
+Given <code>[5, 7, 7, 8, 8, 10]</code> and target value 8,
+return <code>[3, 4]</code>.</p>
+<p><br></p>
+<p>C++ STL&#x4E2D;&#x7684;:</p>
+<ul>
+<li><code>lower_bound</code>: Returns an iterator pointing to the first element in the range <code>[first, last)</code> that is <em>not less</em> than (i.e. <strong>greater or equal</strong> to) <code>value</code>, or <code>last</code> if no such element is found.</li>
+<li><code>upper_bound</code>: Returns an iterator pointing to the first element in the range <code>[first, last)</code> that is <strong>greater</strong> than <code>value</code>, or <code>last</code> if no such element is found.</li>
+</ul>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">searchRange</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">rst</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">auto</span> it1 <span class="token operator">=</span> <span class="token function">lower_bound</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>it1 <span class="token operator">==</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">*</span>it1 <span class="token operator">!=</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
+        <span class="token keyword">auto</span> it2 <span class="token operator">=</span> <span class="token function">upper_bound</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rst<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> it1 <span class="token operator">-</span> nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rst<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> it2 <span class="token operator">-</span> nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x53EA;&#x7528;<code>lower_bound</code>&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<p>it2 = lower_bound(nums.begin(), nums.end(), <code>target+1</code>)</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">searchRange</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">rst</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">auto</span> it1 <span class="token operator">=</span> <span class="token function">lower_bound</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>it1 <span class="token operator">==</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">*</span>it1 <span class="token operator">!=</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
+        <span class="token keyword">auto</span> it2 <span class="token operator">=</span> <span class="token function">lower_bound</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> target<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rst<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> it1 <span class="token operator">-</span> nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rst<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> it2 <span class="token operator">-</span> nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;find&#xFF1A;</p>
+<ul>
+<li>find1() &#x8868;&#x793A;&#x6C42;&#x7B2C;&#x4E00;&#x4E2A;target&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x82E5;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x8FD4;&#x56DE;-1.</li>
+<li>find2() &#x8868;&#x793A;&#x6C42;&#x6700;&#x540E;&#x4E00;&#x4E2A;target&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x82E5;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x8FD4;&#x56DE;-1.</li>
+</ul>
+<p>&#x4E3B;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x5F53;<code>nums[mid]==target</code>&#x65F6;&#x7684;&#x5904;&#x7406;&#x3002;</li>
+<li>return <code>le</code> or <code>ri</code>.</li>
+<li>&#x8FD4;&#x56DE;<code>-1</code>&#x7684;&#x5904;&#x7406;&#x3002;</li>
+</ul>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">find1</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> le <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ri <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> mid<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>le <span class="token operator">&lt;=</span> ri<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            mid <span class="token operator">=</span> <span class="token punctuation">(</span>le<span class="token operator">+</span>ri<span class="token punctuation">)</span><span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>target <span class="token operator">&lt;=</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span> ri <span class="token operator">=</span> mid<span class="token number">-1</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> le <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>le <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>le<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> le<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> <span class="token function">find2</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> le <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ri <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> mid<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>le <span class="token operator">&lt;=</span> ri<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            mid <span class="token operator">=</span> <span class="token punctuation">(</span>le<span class="token operator">+</span>ri<span class="token punctuation">)</span><span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>target <span class="token operator">&gt;=</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span> le <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> ri <span class="token operator">=</span> mid<span class="token number">-1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>ri <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>ri<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> ri<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">searchRange</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> rst<span class="token punctuation">;</span>
+        rst<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">find1</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rst<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">find2</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="33&81. Search in Rotated Sorted Array.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 33&81. Search in Rotated Sorted Array">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="44. Wildcard Matching.html" class="navigation navigation-next " aria-label="Next page: LeetCode 44. Wildcard Matching">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 34. Search for a Range","level":"2.33","depth":1,"next":{"title":"LeetCode 44. Wildcard Matching","level":"2.34","depth":1,"path":"solutions/44. Wildcard Matching.md","ref":"solutions/44. Wildcard Matching.md","articles":[]},"previous":{"title":"LeetCode 33&81. Search in Rotated Sorted Array","level":"2.32","depth":1,"path":"solutions/33&81. Search in Rotated Sorted Array.md","ref":"solutions/33&81. Search in Rotated Sorted Array.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/34. Search for a Range.md","mtime":"2017-09-14T13:01:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-14T13:02:27.206Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -62,9 +62,21 @@
 
 * [LeetCode 29. Divide Two Integers](solutions/29. Divide Two Integers.md)
 
+* [LeetCode 30. Substring with Concatenation of All Words](solutions/30. Substring with Concatenation of All Words.md)
+
+* [LeetCode 31. Next Permutation](solutions/31. Next Permutation.md)
+
+* [LeetCode 32. Longest Valid Parentheses](solutions/32. Longest Valid Parentheses.md)
+
+* [LeetCode 33&81. Search in Rotated Sorted Array](solutions/33&81. Search in Rotated Sorted Array.md)
+
+* [LeetCode 34. Search for a Range](solutions/34. Search for a Range.md)
+
 * [LeetCode 44. Wildcard Matching](solutions/44. Wildcard Matching.md)
 
 * [LeetCode 46&47. Permutations & Permutations II](solutions/46&47. Permutations & Permutations II.md)
+
+* [LeetCode 71. Simplify Path](solutions/71. Simplify Path.md)
 
 * [LeetCode 146. LRU Cache](solutions/146. LRU Cache.md)
 

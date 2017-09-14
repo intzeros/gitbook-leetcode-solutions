@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode 26&80. Remove Duplicates from Sorted Array · GitBook</title>
+        <title>LeetCode 71. Simplify Path · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="27. Remove Element.html" />
+    <link rel="next" href="146. LRU Cache.html" />
     
     
-    <link rel="prev" href="25. Reverse Nodes in k-Group.html" />
+    <link rel="prev" href="46&47. Permutations & Permutations II.html" />
     
 
     </head>
@@ -436,7 +436,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.25" data-path="26&80. Remove Duplicates from Sorted Array.html">
+        <li class="chapter " data-level="2.25" data-path="26&80. Remove Duplicates from Sorted Array.html">
             
                 <a href="26&80. Remove Duplicates from Sorted Array.html">
             
@@ -579,7 +579,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.36" data-path="71. Simplify Path.html">
+        <li class="chapter active" data-level="2.36" data-path="71. Simplify Path.html">
             
                 <a href="71. Simplify Path.html">
             
@@ -635,7 +635,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode 26&80. Remove Duplicates from Sorted Array</a>
+        <a href=".." >LeetCode 71. Simplify Path</a>
     </h1>
 </div>
 
@@ -650,45 +650,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="leetcode-26-remove-duplicates-from-sorted-array">LeetCode 26. Remove Duplicates from Sorted Array</h2>
-<p>Given a sorted array, remove the duplicates in place such that each element appear only <em>once</em> and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
+                                <h2 id="leetcode-71-simplify-path">LeetCode 71. Simplify Path</h2>
+<p>Given an absolute path for a file (Unix-style), simplify it.</p>
 <p>For example,
-Given input array <em>nums</em> = <code>[1,1,2]</code>,</p>
-<p>Your function should return length = <code>2</code>, with the first two elements of <em>nums</em> being <code>1</code> and <code>2</code> respectively. It doesn&apos;t matter what you leave beyond the new length.</p>
+<strong>path</strong> = <code>&quot;/home/&quot;</code>, =&gt; <code>&quot;/home&quot;</code>
+<strong>path</strong> = <code>&quot;/a/./b/../../c/&quot;</code>, =&gt; <code>&quot;/c&quot;</code></p>
 <p><br></p>
+<p>Corner cases:</p>
+<ul>
+<li><code>&quot;//&quot;</code></li>
+<li><code>&quot;/./&quot;</code></li>
+<li><code>&quot;/home/../&quot;</code></li>
+<li><code>&quot;/../../&quot;</code></li>
+<li>if empty, return <code>&quot;/&quot;</code>.</li>
+</ul>
+<p>stack&#x3001;queue&#x4E0D;&#x63D0;&#x4F9B;&#x987A;&#x5E8F;&#x904D;&#x5386;(iterator begin end)&#xFF0C;&#x8FD9;&#x91CC;&#x7528;vector&#x6216;&#x8005;deque.</p>
 <pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> k<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> nums<span class="token punctuation">[</span>i<span class="token operator">-</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    string <span class="token function">simplifyPath</span><span class="token punctuation">(</span>string path<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span> vec<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> n <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>j <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> path<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span> j<span class="token operator">++</span><span class="token punctuation">;</span>
+            string str <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>str <span class="token operator">==</span> <span class="token string">&quot;&quot;</span> <span class="token operator">||</span> str <span class="token operator">==</span> <span class="token string">&quot;.&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>str <span class="token operator">==</span> <span class="token string">&quot;..&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>vec<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> vec<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> 
+            <span class="token keyword">else</span> vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            i <span class="token operator">=</span> <span class="token operator">++</span>j<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> k<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
-<p><br></p>
-<h2 id="leetcode-80-remove-duplicates-from-sorted-array-ii">LeetCode 80. Remove Duplicates from Sorted Array II</h2>
-<p>Follow up for &quot;Remove Duplicates&quot;:
-What if duplicates are allowed at most <em>twice</em>?</p>
-<p>For example,
-Given sorted array <em>nums</em> = <code>[1,1,1,2,2,3]</code>,</p>
-<p>Your function should return length = <code>5</code>, with the first five elements of <em>nums</em> being <code>1</code>, <code>1</code>, <code>2</code>, <code>2</code> and <code>3</code>. It doesn&apos;t matter what you leave beyond the new length.</p>
-<p><br></p>
-<p>&#x5982;&#x679C;&#x76F4;&#x63A5;&#x5C06;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x6539;&#x4E3A; if(i &gt;= 2 &amp;&amp; nums[i] == nums[i-2]) k++; &#x662F;&#x4E0D;&#x53EF;&#x884C;&#x7684;. &#x56E0;&#x4E3A;&#x5728;&#x5224;&#x65AD; nums[i-2]&#x65F6;, nums[i-2]&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x88AB;&#x4FEE;&#x6539;&#x8FC7;&#x4E86;.
-&#x6BD4;&#x5982; [1,1,1,2,2,3], &#x5F97;&#x5230;&#x9519;&#x8BEF;&#x7ED3;&#x679C; [1,1,2,3].</p>
-<p>&#x6B63;&#x786E;&#x7684;&#x662F;&#x5224;&#x65AD;: nums[i] == <code>nums[i-2-k]</code>.</p>
-<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&gt;=</span> <span class="token number">2</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token operator">-</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span> k<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> nums<span class="token punctuation">[</span>i<span class="token operator">-</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>vec<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">;</span>
+        string rst<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> vec<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            rst <span class="token operator">+</span><span class="token operator">=</span> <span class="token string">&quot;/&quot;</span> <span class="token operator">+</span> vec<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>k<span class="token punctuation">;</span> 
+        <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
@@ -719,12 +718,12 @@ Given sorted array <em>nums</em> = <code>[1,1,1,2,2,3]</code>,</p>
 
             
                 
-                <a href="25. Reverse Nodes in k-Group.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 25. Reverse Nodes in k-Group">
+                <a href="46&47. Permutations & Permutations II.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 46&47. Permutations & Permutations II">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="27. Remove Element.html" class="navigation navigation-next " aria-label="Next page: LeetCode 27. Remove Element">
+                <a href="146. LRU Cache.html" class="navigation navigation-next " aria-label="Next page: LeetCode 146. LRU Cache">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -735,7 +734,7 @@ Given sorted array <em>nums</em> = <code>[1,1,1,2,2,3]</code>,</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode 26&80. Remove Duplicates from Sorted Array","level":"2.25","depth":1,"next":{"title":"LeetCode 27. Remove Element","level":"2.26","depth":1,"path":"solutions/27. Remove Element.md","ref":"solutions/27. Remove Element.md","articles":[]},"previous":{"title":"LeetCode 25. Reverse Nodes in k-Group","level":"2.24","depth":1,"path":"solutions/25. Reverse Nodes in k-Group.md","ref":"solutions/25. Reverse Nodes in k-Group.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/26&80. Remove Duplicates from Sorted Array.md","mtime":"2017-09-13T11:21:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-14T13:02:27.206Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 71. Simplify Path","level":"2.36","depth":1,"next":{"title":"LeetCode 146. LRU Cache","level":"2.37","depth":1,"path":"solutions/146. LRU Cache.md","ref":"solutions/146. LRU Cache.md","articles":[]},"previous":{"title":"LeetCode 46&47. Permutations & Permutations II","level":"2.35","depth":1,"path":"solutions/46&47. Permutations & Permutations II.md","ref":"solutions/46&47. Permutations & Permutations II.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/71. Simplify Path.md","mtime":"2017-09-14T08:29:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-14T13:02:27.206Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
