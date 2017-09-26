@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode 8. String to Integer (atoi) · GitBook</title>
+        <title>LeetCode 322&518. Coin Change · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="9. Palindrome Number.html" />
     
-    
-    <link rel="prev" href="7. Reverse Integer.html" />
+    <link rel="prev" href="148. Sort List.html" />
     
 
     </head>
@@ -215,7 +213,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.8" data-path="8. String to Integer-atoi.html">
+        <li class="chapter " data-level="2.8" data-path="8. String to Integer-atoi.html">
             
                 <a href="8. String to Integer-atoi.html">
             
@@ -709,7 +707,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.46" data-path="322&518. Coin Change.html">
+        <li class="chapter active" data-level="2.46" data-path="322&518. Coin Change.html">
             
                 <a href="322&518. Coin Change.html">
             
@@ -752,7 +750,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode 8. String to Integer (atoi)</a>
+        <a href=".." >LeetCode 322&518. Coin Change</a>
     </h1>
 </div>
 
@@ -767,38 +765,78 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="leetcode-8-string-to-integer-atoi">LeetCode 8. String to Integer (atoi)</h2>
-<p>Implement atoi to convert a string to an integer.</p>
-<p><strong>Hint:</strong> Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.</p>
-<p><strong>Notes:</strong> It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.</p>
-<p><strong>Update (2015-02-10):</strong>
-The signature of the <code>C++</code> function had been updated. If you still see your function signature accepts a <code>const char *</code> argument, please click the reload button  to reset your code definition.</p>
+                                <h2 id="leetcode-322-coin-change">LeetCode 322. Coin Change</h2>
+<p>You are given coins of different denominations and a total amount of money <em>amount</em>. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>
+<p><strong>Example 1:</strong>
+coins = <code>[1, 2, 5]</code>, amount = <code>11</code>
+return <code>3</code> (11 = 5 + 5 + 1)</p>
+<p><strong>Example 2:</strong>
+coins = <code>[2]</code>, amount = <code>3</code>
+return <code>-1</code>.</p>
+<p><strong>Note</strong>:
+You may assume that you have an infinite number of each kind of coin.</p>
 <p><br></p>
-<p>Four cases need to pay attention&#xFF1A;</p>
-<ul>
-<li>whitespaces</li>
-<li>sign</li>
-<li>overflow</li>
-<li>invalid input</li>
-</ul>
+<p>&#x53EF;&#x91CD;&#x590D;&#x53D6;&#x3002;for&#x5FAA;&#x73AF;&#x4E3A;&#x6B63;&#x5411;&#x3002;</p>
 <pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">myAtoi</span><span class="token punctuation">(</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">long</span> <span class="token keyword">long</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> n <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> sign <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos; &apos;</span><span class="token punctuation">)</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;+&apos;</span><span class="token punctuation">)</span> sign <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;-&apos;</span><span class="token punctuation">)</span> sign <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">int</span> MAX <span class="token operator">=</span> <span class="token number">0x7fffffff</span><span class="token punctuation">,</span> MIN <span class="token operator">=</span> <span class="token number">0x80000000</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token string">&apos;0&apos;</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token string">&apos;9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            x <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token string">&apos;0&apos;</span><span class="token punctuation">;</span>
-            i<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> x <span class="token operator">&gt;</span> MAX<span class="token punctuation">)</span> <span class="token keyword">return</span> MAX<span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">-</span>x <span class="token operator">&lt;</span> MIN<span class="token punctuation">)</span> <span class="token keyword">return</span> MIN<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">coinChange</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> coins<span class="token punctuation">,</span> <span class="token keyword">int</span> amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> coins<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> INF <span class="token operator">=</span> amount<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">dp</span><span class="token punctuation">(</span>amount<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> INF<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> amount<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>j<span class="token operator">-</span>coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> x <span class="token operator">=</span> <span class="token operator">-</span>x<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span> <span class="token operator">==</span> INF<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">return</span> dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p><br></p>
+<h2 id="leetcode-518-coin-change-2">LeetCode 518. Coin Change 2</h2>
+<p>You are given coins of different denominations and a total amount of money. Write a function to compute the number of combinations that make up that amount. You may assume that you have infinite number of each kind of coin.</p>
+<p><strong>Note:</strong> You can assume that</p>
+<ul>
+<li>0 &lt;= amount &lt;= 5000</li>
+<li>1 &lt;= coin &lt;= 5000</li>
+<li>the number of coins is less than 500</li>
+<li>the answer is guaranteed to fit into signed 32-bit integer</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: amount = 5, coins = [1, 2, 5]
+Output: 4
+Explanation: there are four ways to make up the amount:
+5=5
+5=2+2+1
+5=2+1+1+1
+5=1+1+1+1+1
+</code></pre><p><strong>Example 2:</strong></p>
+<pre><code>Input: amount = 3, coins = [2]
+Output: 0
+Explanation: the amount of 3 cannot be made up just with coins of 2.
+</code></pre><p><strong>Example 3:</strong></p>
+<pre><code>Input: amount = 10, coins = [10] 
+Output: 1
+</code></pre><p><br></p>
+<p>&#x53EF;&#x91CD;&#x590D;&#x53D6;&#x3002;for&#x5FAA;&#x73AF;&#x4E3A;&#x6B63;&#x5411;&#x3002;</p>
+<p>&#x4E0D;&#x540C;&#x4E8E;<a href="39&amp;40&amp;216&amp;377.%20Combination%20Sum.html">LeetCode 377. Combination Sum IV</a>&#xFF0C;&#x5BF9; LeetCode-337 &#x6C42;&#x5F97;&#x662F;&#x6392;&#x5E8F;&#x6570;&#xFF0C;&#x5373;(1, 1, 2), (1, 2, 1), (2, 1, 1)&#x770B;&#x4F5C;&#x4E0D;&#x540C;&#x7684;&#x89E3;&#x3002;&#x6545;&#x7B2C;&#x4E00;&#x5C42;for &#x5148;&#x5FAA;&#x73AF;amount, &#x7136;&#x540E;&#x518D;&#x5FAA;&#x73AF;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;.</p>
+<p>&#x8FD9;&#x91CC;&#xFF0C;&#x82E5;&#x7B2C;&#x4E00;&#x5C42;&#x5FAA;&#x73AF;&#x4E3A; for(int i = 1; i &lt;= amount; i++), &#x610F;&#x5473;&#x7740;&#x63A8;&#x5BFC;&#x65B9;&#x5F0F;&#x4E3A;:</p>
+<p>&#x4EE5; f(3)&#x4E3A;&#x4F8B;, f(3) = {1+f(2), 2+f(1), 3+f(0)}. &#x663E;&#x7136; 1+f(2)&#x548C;2+f(1)&#x5B58;&#x5728;&#x91CD;&#x590D;&#x7684;&#x89E3;. &#x5B9E;&#x9645;&#x4E0A;,&#x8BE5;&#x65B9;&#x5F0F;&#x6C42;&#x7684;&#x662F;&#x4E0D;&#x540C;&#x786C;&#x5E01;&#x7684;&#x6392;&#x5217;&#x6570;.</p>
+<p>&#x6B63;&#x786E;&#x7684;&#x89E3;&#x6CD5;. &#x5BF9;&#x5F53;&#x524D;&#x5143;&#x7D20; coins[i],  dp[j]&#x5B9E;&#x9645;&#x4E0A;&#x5B58;&#x7684;&#x662F;&#x7531;&#x524D; i-1 &#x4E2A;&#x9762;&#x503C;&#x6784;&#x6210;&#x7684;&#x89E3;&#x96C6;. &#x7136;&#x540E;&#x5BF9;&#x6240;&#x6709;&#x7684; dp[j]&#x518D;&#x66F4;&#x65B0;&#x4E3A;&#x52A0;&#x4E0A; coins[i]&#x4E4B;&#x540E;&#x7684;&#x89E3;.</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">change</span><span class="token punctuation">(</span><span class="token keyword">int</span> amount<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> coins<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> coins<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">dp</span><span class="token punctuation">(</span>amount<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> amount<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> dp<span class="token punctuation">[</span>j <span class="token operator">-</span> coins<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
@@ -829,14 +867,10 @@ The signature of the <code>C++</code> function had been updated. If you still se
 
             
                 
-                <a href="7. Reverse Integer.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 7. Reverse Integer">
+                <a href="148. Sort List.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: LeetCode 148. Sort List">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="9. Palindrome Number.html" class="navigation navigation-next " aria-label="Next page: LeetCode 9. Palindrome Number">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -845,7 +879,7 @@ The signature of the <code>C++</code> function had been updated. If you still se
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode 8. String to Integer (atoi)","level":"2.8","depth":1,"next":{"title":"LeetCode 9. Palindrome Number","level":"2.9","depth":1,"path":"solutions/9. Palindrome Number.md","ref":"solutions/9. Palindrome Number.md","articles":[]},"previous":{"title":"LeetCode 7. Reverse Integer","level":"2.7","depth":1,"path":"solutions/7. Reverse Integer.md","ref":"solutions/7. Reverse Integer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/8. String to Integer-atoi.md","mtime":"2017-09-06T07:25:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-26T11:45:41.356Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 322&518. Coin Change","level":"2.46","depth":1,"previous":{"title":"LeetCode 148. Sort List","level":"2.45","depth":1,"path":"solutions/148. Sort List.md","ref":"solutions/148. Sort List.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/322&518. Coin Change.md","mtime":"2017-09-15T08:42:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-26T11:45:41.356Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

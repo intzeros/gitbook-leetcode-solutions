@@ -72,13 +72,33 @@
 
 * [LeetCode 34. Search for a Range](solutions/34. Search for a Range.md)
 
+* [LeetCode 35. Search Insert Position](solutions/35. Search Insert Position.md)
+
+* [LeetCode 36. Valid Sudoku](solutions/36. Valid Sudoku.md)
+
+* [LeetCode 37. Sudoku Solver](solutions/37. Sudoku Solver.md)
+
+* [LeetCode 38. Count and Say](solutions/38. Count and Say.md)
+
+* [LeetCode 39&40&216&377. Combination Sum](solutions/39&40&216&377. Combination Sum.md)
+
+* [LeetCode 41. First Missing Positive](solutions/41. First Missing Positive.md)
+
+* [LeetCode 42&407. Trapping Rain Water](solutions/42&407. Trapping Rain Water.md)
+
 * [LeetCode 44. Wildcard Matching](solutions/44. Wildcard Matching.md)
 
-* [LeetCode 46&47. Permutations & Permutations II](solutions/46&47. Permutations & Permutations II.md)
+* [LeetCode 46&47. Permutations](solutions/46&47. Permutations & Permutations II.md)
 
 * [LeetCode 71. Simplify Path](solutions/71. Simplify Path.md)
 
 * [LeetCode 146. LRU Cache](solutions/146. LRU Cache.md)
+
+* [LeetCode 148. Sort List](solutions/148. Sort List.md)
+
+* [LeetCode 322&518. Coin Change](solutions/322&518. Coin Change.md)
+
+  ​
 
   ​
 

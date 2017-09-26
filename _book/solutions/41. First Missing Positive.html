@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode 8. String to Integer (atoi) · GitBook</title>
+        <title>LeetCode 41. First Missing Positive · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="9. Palindrome Number.html" />
+    <link rel="next" href="42&407. Trapping Rain Water.html" />
     
     
-    <link rel="prev" href="7. Reverse Integer.html" />
+    <link rel="prev" href="39&40&216&377. Combination Sum.html" />
     
 
     </head>
@@ -215,7 +215,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.8" data-path="8. String to Integer-atoi.html">
+        <li class="chapter " data-level="2.8" data-path="8. String to Integer-atoi.html">
             
                 <a href="8. String to Integer-atoi.html">
             
@@ -618,7 +618,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.39" data-path="41. First Missing Positive.html">
+        <li class="chapter active" data-level="2.39" data-path="41. First Missing Positive.html">
             
                 <a href="41. First Missing Positive.html">
             
@@ -752,7 +752,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode 8. String to Integer (atoi)</a>
+        <a href=".." >LeetCode 41. First Missing Positive</a>
     </h1>
 </div>
 
@@ -767,38 +767,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="leetcode-8-string-to-integer-atoi">LeetCode 8. String to Integer (atoi)</h2>
-<p>Implement atoi to convert a string to an integer.</p>
-<p><strong>Hint:</strong> Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.</p>
-<p><strong>Notes:</strong> It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.</p>
-<p><strong>Update (2015-02-10):</strong>
-The signature of the <code>C++</code> function had been updated. If you still see your function signature accepts a <code>const char *</code> argument, please click the reload button  to reset your code definition.</p>
+                                <h2 id="leetcode-41-first-missing-positive">LeetCode 41. First Missing Positive</h2>
+<p>Given an unsorted integer array, find the first missing positive integer.</p>
+<p>For example,
+Given <code>[1,2,0]</code> return <code>3</code>,
+and <code>[3,4,-1,1]</code> return <code>2</code>.</p>
+<p>Your algorithm should run in <em>O</em>(<em>n</em>) time and uses constant space.</p>
 <p><br></p>
-<p>Four cases need to pay attention&#xFF1A;</p>
-<ul>
-<li>whitespaces</li>
-<li>sign</li>
-<li>overflow</li>
-<li>invalid input</li>
-</ul>
+<p>&#x601D;&#x8DEF;&#xFF1A;</p>
+<p>&#x5229;&#x7528;swap&#xFF0C;&#x5C06;nums[i]&#x653E;&#x5728;&#x6570;&#x7EC4;&#x7684;&#x7B2C;i&#x4E2A;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;&#xFF1A;&#x6DFB;&#x52A0;&#x5224;&#x5B9A;&#x6761;&#x4EF6; nums[i] != nums[nums[i]-1]&#xFF0C;&#x5426;&#x5219;&#x5BF9;&#x4E8E;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B; nums = [1, 1]&#xFF0C;&#x4F1A;&#x9677;&#x5165;&#x6B7B;&#x5FAA;&#x73AF;&#x3002;</p>
 <pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">myAtoi</span><span class="token punctuation">(</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">long</span> <span class="token keyword">long</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> n <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> sign <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos; &apos;</span><span class="token punctuation">)</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;+&apos;</span><span class="token punctuation">)</span> sign <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;-&apos;</span><span class="token punctuation">)</span> sign <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">int</span> MAX <span class="token operator">=</span> <span class="token number">0x7fffffff</span><span class="token punctuation">,</span> MIN <span class="token operator">=</span> <span class="token number">0x80000000</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token string">&apos;0&apos;</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token string">&apos;9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            x <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token string">&apos;0&apos;</span><span class="token punctuation">;</span>
-            i<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> x <span class="token operator">&gt;</span> MAX<span class="token punctuation">)</span> <span class="token keyword">return</span> MAX<span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">-</span>x <span class="token operator">&lt;</span> MIN<span class="token punctuation">)</span> <span class="token keyword">return</span> MIN<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">firstMissingPositive</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">!=</span> i <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token function">swap</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> x <span class="token operator">=</span> <span class="token operator">-</span>x<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">!=</span> i<span class="token punctuation">)</span> <span class="token keyword">return</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
@@ -829,12 +818,12 @@ The signature of the <code>C++</code> function had been updated. If you still se
 
             
                 
-                <a href="7. Reverse Integer.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 7. Reverse Integer">
+                <a href="39&40&216&377. Combination Sum.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 39&40&216&377. Combination Sum">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="9. Palindrome Number.html" class="navigation navigation-next " aria-label="Next page: LeetCode 9. Palindrome Number">
+                <a href="42&407. Trapping Rain Water.html" class="navigation navigation-next " aria-label="Next page: LeetCode 42&407. Trapping Rain Water">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -845,7 +834,7 @@ The signature of the <code>C++</code> function had been updated. If you still se
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode 8. String to Integer (atoi)","level":"2.8","depth":1,"next":{"title":"LeetCode 9. Palindrome Number","level":"2.9","depth":1,"path":"solutions/9. Palindrome Number.md","ref":"solutions/9. Palindrome Number.md","articles":[]},"previous":{"title":"LeetCode 7. Reverse Integer","level":"2.7","depth":1,"path":"solutions/7. Reverse Integer.md","ref":"solutions/7. Reverse Integer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/8. String to Integer-atoi.md","mtime":"2017-09-06T07:25:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-26T11:45:41.356Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 41. First Missing Positive","level":"2.39","depth":1,"next":{"title":"LeetCode 42&407. Trapping Rain Water","level":"2.40","depth":1,"path":"solutions/42&407. Trapping Rain Water.md","ref":"solutions/42&407. Trapping Rain Water.md","articles":[]},"previous":{"title":"LeetCode 39&40&216&377. Combination Sum","level":"2.38","depth":1,"path":"solutions/39&40&216&377. Combination Sum.md","ref":"solutions/39&40&216&377. Combination Sum.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/41. First Missing Positive.md","mtime":"2017-09-15T09:04:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-26T11:45:41.356Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

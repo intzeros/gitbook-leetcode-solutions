@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode 8. String to Integer (atoi) · GitBook</title>
+        <title>LeetCode 36. Valid Sudoku · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="9. Palindrome Number.html" />
+    <link rel="next" href="37. Sudoku Solver.html" />
     
     
-    <link rel="prev" href="7. Reverse Integer.html" />
+    <link rel="prev" href="35. Search Insert Position.html" />
     
 
     </head>
@@ -215,7 +215,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.8" data-path="8. String to Integer-atoi.html">
+        <li class="chapter " data-level="2.8" data-path="8. String to Integer-atoi.html">
             
                 <a href="8. String to Integer-atoi.html">
             
@@ -566,7 +566,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.35" data-path="36. Valid Sudoku.html">
+        <li class="chapter active" data-level="2.35" data-path="36. Valid Sudoku.html">
             
                 <a href="36. Valid Sudoku.html">
             
@@ -752,7 +752,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode 8. String to Integer (atoi)</a>
+        <a href=".." >LeetCode 36. Valid Sudoku</a>
     </h1>
 </div>
 
@@ -767,38 +767,34 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="leetcode-8-string-to-integer-atoi">LeetCode 8. String to Integer (atoi)</h2>
-<p>Implement atoi to convert a string to an integer.</p>
-<p><strong>Hint:</strong> Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.</p>
-<p><strong>Notes:</strong> It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.</p>
-<p><strong>Update (2015-02-10):</strong>
-The signature of the <code>C++</code> function had been updated. If you still see your function signature accepts a <code>const char *</code> argument, please click the reload button  to reset your code definition.</p>
+                                <h2 id="leetcode-36-valid-sudoku">LeetCode 36. Valid Sudoku</h2>
+<p>Determine if a Sudoku is valid, according to: <a href="http://sudoku.com.au/TheRules.aspx" target="_blank">Sudoku Puzzles - The Rules</a>.</p>
+<p>The Sudoku board could be partially filled, where empty cells are filled with the character <code>&apos;.&apos;</code>.</p>
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png" alt="img"></p>
+<p>A partially filled sudoku which is valid.</p>
+<p><strong>Note:</strong>
+A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.</p>
 <p><br></p>
-<p>Four cases need to pay attention&#xFF1A;</p>
+<p>&#x9898;&#x76EE;&#x5E76;&#x4E0D;&#x8981;&#x6C42;&#x4E00;&#x5B9A;&#x8981;solvable.</p>
 <ul>
-<li>whitespaces</li>
-<li>sign</li>
-<li>overflow</li>
-<li>invalid input</li>
+<li><code>used1[i][j]</code>&#x8868;&#x793A;&#x7B2C;i&#x884C;&#x4E2D;&#xFF0C;&#x6570;&#x5B57;j&#x662F;&#x5426;&#x88AB;&#x4F7F;&#x7528;&#x8FC7;&#x3002;</li>
+<li><code>used2[i][j]</code>&#x8868;&#x793A;&#x7B2C;i&#x5217;&#x4E2D;&#xFF0C;&#x6570;&#x5B57;j&#x662F;&#x5426;&#x88AB;&#x4F7F;&#x7528;&#x8FC7;&#x3002;</li>
+<li><code>used3[i][j]</code>&#x8868;&#x793A;&#x7B2C;i&#x4E2A;3*3&#x65B9;&#x5757;&#x4E2D;&#xFF0C;&#x6570;&#x5B57;j&#x662F;&#x5426;&#x88AB;&#x4F7F;&#x7528;&#x8FC7;&#x3002;</li>
 </ul>
 <pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">myAtoi</span><span class="token punctuation">(</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">long</span> <span class="token keyword">long</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> n <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> sign <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos; &apos;</span><span class="token punctuation">)</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;+&apos;</span><span class="token punctuation">)</span> sign <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;-&apos;</span><span class="token punctuation">)</span> sign <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">int</span> MAX <span class="token operator">=</span> <span class="token number">0x7fffffff</span><span class="token punctuation">,</span> MIN <span class="token operator">=</span> <span class="token number">0x80000000</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token string">&apos;0&apos;</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token string">&apos;9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            x <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token string">&apos;0&apos;</span><span class="token punctuation">;</span>
-            i<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> x <span class="token operator">&gt;</span> MAX<span class="token punctuation">)</span> <span class="token keyword">return</span> MAX<span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">-</span>x <span class="token operator">&lt;</span> MIN<span class="token punctuation">)</span> <span class="token keyword">return</span> MIN<span class="token punctuation">;</span>
+    <span class="token keyword">bool</span> <span class="token function">isValidSudoku</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> board<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">bool</span> used1<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">,</span> used2<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">,</span> used3<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> row <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> row <span class="token operator">&lt;</span> <span class="token number">9</span><span class="token punctuation">;</span> row<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> col <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> col <span class="token operator">&lt;</span> <span class="token number">9</span><span class="token punctuation">;</span> col<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>board<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;.&apos;</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> num <span class="token operator">=</span> board<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span><span class="token operator">-</span><span class="token string">&apos;0&apos;</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> k <span class="token operator">=</span> row<span class="token operator">/</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">3</span> <span class="token operator">+</span> col<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>used1<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">||</span> used2<span class="token punctuation">[</span>col<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">||</span> used3<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                used1<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">=</span> used2<span class="token punctuation">[</span>col<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">=</span> used3<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> x <span class="token operator">=</span> <span class="token operator">-</span>x<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
@@ -829,12 +825,12 @@ The signature of the <code>C++</code> function had been updated. If you still se
 
             
                 
-                <a href="7. Reverse Integer.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 7. Reverse Integer">
+                <a href="35. Search Insert Position.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 35. Search Insert Position">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="9. Palindrome Number.html" class="navigation navigation-next " aria-label="Next page: LeetCode 9. Palindrome Number">
+                <a href="37. Sudoku Solver.html" class="navigation navigation-next " aria-label="Next page: LeetCode 37. Sudoku Solver">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -845,7 +841,7 @@ The signature of the <code>C++</code> function had been updated. If you still se
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode 8. String to Integer (atoi)","level":"2.8","depth":1,"next":{"title":"LeetCode 9. Palindrome Number","level":"2.9","depth":1,"path":"solutions/9. Palindrome Number.md","ref":"solutions/9. Palindrome Number.md","articles":[]},"previous":{"title":"LeetCode 7. Reverse Integer","level":"2.7","depth":1,"path":"solutions/7. Reverse Integer.md","ref":"solutions/7. Reverse Integer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/8. String to Integer-atoi.md","mtime":"2017-09-06T07:25:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-26T11:45:41.356Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 36. Valid Sudoku","level":"2.35","depth":1,"next":{"title":"LeetCode 37. Sudoku Solver","level":"2.36","depth":1,"path":"solutions/37. Sudoku Solver.md","ref":"solutions/37. Sudoku Solver.md","articles":[]},"previous":{"title":"LeetCode 35. Search Insert Position","level":"2.34","depth":1,"path":"solutions/35. Search Insert Position.md","ref":"solutions/35. Search Insert Position.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/36. Valid Sudoku.md","mtime":"2017-09-15T03:30:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-26T11:45:41.356Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

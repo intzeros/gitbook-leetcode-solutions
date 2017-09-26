@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode 34. Search for a Range · GitBook</title>
+        <title>LeetCode 42&407. Trapping Rain Water · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="35. Search Insert Position.html" />
+    <link rel="next" href="44. Wildcard Matching.html" />
     
     
-    <link rel="prev" href="33&81. Search in Rotated Sorted Array.html" />
+    <link rel="prev" href="41. First Missing Positive.html" />
     
 
     </head>
@@ -540,7 +540,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.33" data-path="34. Search for a Range.html">
+        <li class="chapter " data-level="2.33" data-path="34. Search for a Range.html">
             
                 <a href="34. Search for a Range.html">
             
@@ -631,7 +631,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.40" data-path="42&407. Trapping Rain Water.html">
+        <li class="chapter active" data-level="2.40" data-path="42&407. Trapping Rain Water.html">
             
                 <a href="42&407. Trapping Rain Water.html">
             
@@ -752,7 +752,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode 34. Search for a Range</a>
+        <a href=".." >LeetCode 42&407. Trapping Rain Water</a>
     </h1>
 </div>
 
@@ -767,90 +767,107 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="leetcode-34-search-for-a-range">LeetCode 34. Search for a Range</h2>
-<p>Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.</p>
-<p>Your algorithm&apos;s runtime complexity must be in the order of <em>O</em>(log <em>n</em>).</p>
-<p>If the target is not found in the array, return <code>[-1, -1]</code>.</p>
-<p>For example,
-Given <code>[5, 7, 7, 8, 8, 10]</code> and target value 8,
-return <code>[3, 4]</code>.</p>
+                                <h2 id="leetcode-42-trapping-rain-water">LeetCode 42. Trapping Rain Water</h2>
+<p>Given <em>n</em> non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.</p>
+<p>For example, 
+Given <code>[0,1,0,2,1,0,1,3,2,1,2,1]</code>, return <code>6</code>.</p>
+<p><img src="http://www.leetcode.com/static/images/problemset/rainwatertrap.png" alt="img"></p>
 <p><br></p>
-<p>C++ STL&#x4E2D;&#x7684;:</p>
-<ul>
-<li><code>lower_bound</code>: Returns an iterator pointing to the first element in the range <code>[first, last)</code> that is <em>not less</em> than (i.e. <strong>greater or equal</strong> to) <code>value</code>, or <code>last</code> if no such element is found.</li>
-<li><code>upper_bound</code>: Returns an iterator pointing to the first element in the range <code>[first, last)</code> that is <strong>greater</strong> than <code>value</code>, or <code>last</code> if no such element is found.</li>
-</ul>
+<p>1&#xFF09; &#x4E00;&#x5F00;&#x59CB;&#x60F3;&#x7684;&#x89E3;&#x6CD5;&#xFF1A;</p>
+<p>&#x5728;&#x4F4D;&#x7F6E;i&#xFF0C;&#x8BE5;&#x70B9;&#x7684;&#x50A8;&#x6C34;&#x91CF; = min(&#x5176;&#x5DE6;&#x8FB9;&#x6700;&#x9AD8;&#x7684;&#x9AD8;&#x5EA6;&#xFF0C;&#x5176;&#x53F3;&#x8FB9;&#x6700;&#x9AD8;&#x7684;&#x9AD8;&#x5EA6;) - height[i].</p>
+<p>&#x6545;&#x7528;&#x6570;&#x7EC4;maxh1&#x8BB0;&#x5F55;&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#x7684;&#x5C40;&#x90E8;&#x6700;&#x9AD8;&#x7684;height&#xFF0C;&#x6570;&#x7EC4;maxh2&#x8BB0;&#x5F55;&#x4ECE;&#x53F3;&#x5F80;&#x5DE6;&#x7684;&#x5C40;&#x90E8;&#x6700;&#x9AD8;&#x7684;height&#x3002;</p>
 <pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">searchRange</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">rst</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">auto</span> it1 <span class="token operator">=</span> <span class="token function">lower_bound</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>it1 <span class="token operator">==</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">*</span>it1 <span class="token operator">!=</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
-        <span class="token keyword">auto</span> it2 <span class="token operator">=</span> <span class="token function">upper_bound</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        rst<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> it1 <span class="token operator">-</span> nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        rst<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> it2 <span class="token operator">-</span> nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
-<p>&#x53EA;&#x7528;<code>lower_bound</code>&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF1A;</p>
-<p>it2 = lower_bound(nums.begin(), nums.end(), <code>target+1</code>)</p>
-<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">searchRange</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">rst</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">auto</span> it1 <span class="token operator">=</span> <span class="token function">lower_bound</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>it1 <span class="token operator">==</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">*</span>it1 <span class="token operator">!=</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
-        <span class="token keyword">auto</span> it2 <span class="token operator">=</span> <span class="token function">lower_bound</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> target<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        rst<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> it1 <span class="token operator">-</span> nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        rst<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> it2 <span class="token operator">-</span> nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
-<p>&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;find&#xFF1A;</p>
-<ul>
-<li>find1() &#x8868;&#x793A;&#x6C42;&#x7B2C;&#x4E00;&#x4E2A;target&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x82E5;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x8FD4;&#x56DE;-1.</li>
-<li>find2() &#x8868;&#x793A;&#x6C42;&#x6700;&#x540E;&#x4E00;&#x4E2A;target&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x82E5;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x8FD4;&#x56DE;-1.</li>
-</ul>
-<p>&#x4E3B;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x70B9;&#xFF1A;</p>
-<ul>
-<li>&#x5F53;<code>nums[mid]==target</code>&#x65F6;&#x7684;&#x5904;&#x7406;&#x3002;</li>
-<li>return <code>le</code> or <code>ri</code>.</li>
-<li>&#x8FD4;&#x56DE;<code>-1</code>&#x7684;&#x5904;&#x7406;&#x3002;</li>
-</ul>
-<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">find1</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">int</span> le <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ri <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> mid<span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>le <span class="token operator">&lt;=</span> ri<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            mid <span class="token operator">=</span> <span class="token punctuation">(</span>le<span class="token operator">+</span>ri<span class="token punctuation">)</span><span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>target <span class="token operator">&lt;=</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span> ri <span class="token operator">=</span> mid<span class="token number">-1</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> le <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">trap</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> height<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> height<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">maxh1</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">maxh2</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            maxh1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> maxh1<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>le <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>le<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> le<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">int</span> <span class="token function">find2</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">int</span> le <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ri <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> mid<span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>le <span class="token operator">&lt;=</span> ri<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            mid <span class="token operator">=</span> <span class="token punctuation">(</span>le<span class="token operator">+</span>ri<span class="token punctuation">)</span><span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>target <span class="token operator">&gt;=</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span> le <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> ri <span class="token operator">=</span> mid<span class="token number">-1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>  i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            maxh2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> maxh2<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>ri <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>ri<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> ri<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
 
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">searchRange</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> rst<span class="token punctuation">;</span>
-        rst<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">find1</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        rst<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">find2</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> h <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>maxh1<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> maxh2<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>h <span class="token operator">&gt;</span> height<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> ans <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span>h <span class="token operator">-</span> height<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
+<p>2&#xFF09;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;O(1)&#x7684;&#x89E3;&#x6CD5;&#x3002;&#x5C06;&#x4E0A;&#x8FF0;&#x4E24;&#x4E2A;&#x6570;&#x7EC4;&#x6539;&#x7528;&#x53D8;&#x91CF;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x5148;&#x627E;&#x5230;&#x6700;&#x9AD8;&#x7684;&#x67F1;&#x5B50;&#xFF0C;&#x4E00;&#x5206;&#x4E3A;&#x4E8C;&#x3002;&#x5DE6;&#x8FB9;&#x90E8;&#x5206;&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#x904D;&#x5386;&#xFF0C;&#x53F3;&#x8FB9;&#x90E8;&#x5206;&#x4ECE;&#x53F3;&#x5F80;&#x5DE6;&#x904D;&#x5386;&#x3002;</p>
+<p>h&#x8BB0;&#x5F55;&#x904D;&#x5386;&#x65F6;&#x9047;&#x5230;&#x7684;&#x5C40;&#x90E8;&#x6700;&#x9AD8;&#x9AD8;&#x5EA6;&#x503C;&#xFF0C;&#x5219;&#x6BCF;&#x4E2A;&#x4F4D;&#x7F6E;j &#x6240;&#x80FD;&#x5BB9;&#x7EB3;&#x7684;&#x6C34;&#x4E3A;&#xFF1A;h &#x2013; height[i].</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">trap</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> height<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> height<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> max_idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>max_idx<span class="token punctuation">]</span> <span class="token operator">&lt;</span> height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                max_idx <span class="token operator">=</span> i<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">int</span> h <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> max_idx<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> h<span class="token punctuation">)</span> h <span class="token operator">=</span> height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            ans <span class="token operator">+</span><span class="token operator">=</span> h <span class="token operator">-</span> height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        h <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> n<span class="token number">-1</span><span class="token punctuation">;</span> j <span class="token operator">&gt;</span> max_idx<span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> h<span class="token punctuation">)</span> h <span class="token operator">=</span> height<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            ans <span class="token operator">+</span><span class="token operator">=</span> h <span class="token operator">-</span> height<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>3&#xFF09;&#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x89E3;&#x6CD5;&#x5B9E;&#x8D28;&#x548C;2&#xFF09;&#x662F;&#x4E00;&#x4E2A;&#x610F;&#x601D;&#x3002;</p>
+<p>le&#xFF0C;ri&#x6307;&#x9488;&#x4ECE;&#x4E24;&#x7AEF;&#x5F80;&#x4E2D;&#x95F4;&#x904D;&#x5386;&#xFF0C;&#x5E76;&#x4E14;height&#x66F4;&#x77EE;&#x7684;&#x5148;&#x8D70;&#x3002;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">trap</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> height<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> le <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ri <span class="token operator">=</span> height<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> h <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>le <span class="token operator">&lt;</span> ri<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>le<span class="token punctuation">]</span> <span class="token operator">&lt;</span> height<span class="token punctuation">[</span>ri<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>le<span class="token punctuation">]</span> <span class="token operator">&gt;</span> h<span class="token punctuation">)</span> h <span class="token operator">=</span> height<span class="token punctuation">[</span>le<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                ans <span class="token operator">+</span><span class="token operator">=</span> h <span class="token operator">-</span> height<span class="token punctuation">[</span>le<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                le<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>ri<span class="token punctuation">]</span> <span class="token operator">&gt;</span> h<span class="token punctuation">)</span> h <span class="token operator">=</span> height<span class="token punctuation">[</span>ri<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                ans <span class="token operator">+</span><span class="token operator">=</span> h <span class="token operator">-</span> height<span class="token punctuation">[</span>ri<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                ri<span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p><br></p>
+<h2 id="leetcode-407-trapping-rain-water-ii">LeetCode 407. Trapping Rain Water II</h2>
+<p>Given an <code>m x n</code> matrix of positive integers representing the height of each unit cell in a 2D elevation map, compute the volume of water it is able to trap after raining.</p>
+<p><strong>Note:</strong>
+Both <em>m</em> and <em>n</em> are less than 110. The height of each unit cell is greater than 0 and is less than 20,000.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Given the following 3x6 height map:
+[
+  [1,4,3,1,3,2],
+  [3,2,1,3,2,4],
+  [2,3,3,2,3,1]
+]
+
+Return 4.
+</code></pre><p><img src="https://leetcode.com/static/images/problemset/rainwater_empty.png" alt="img"></p>
+<p>The above image represents the elevation map <code>[[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]]</code> before the rain.</p>
+<p><img src="https://leetcode.com/static/images/problemset/rainwater_fill.png" alt="img"></p>
+<p>After the rain, water are trapped between the blocks. The total volume of water trapped is 4.</p>
+<p><br></p>
+<p>&#x53EA;&#x9760;&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#x56DB;&#x4E2A;&#x65B9;&#x5411;&#x6765;&#x786E;&#x5B9A;&#x77ED;&#x677F;&#x9AD8;&#x5EA6;&#x662F;&#x884C;&#x4E0D;&#x901A;&#x7684;&#xFF0C;&#x5E94;&#x8BE5;&#x9760;&#x56F4;&#x4E00;&#x5708;&#x7684;&#x9AD8;&#x5EA6;&#x3002;</p>
+<p>&#x5982;&#x4F55;&#x786E;&#x5B9A;&#x67D0;&#x4E2A;&#x70B9;&#x7684;&#x50A8;&#x6C34;&#x91CF;&#xFF1F;&#x9996;&#x5148;&#x627E;&#x8BE5;&#x70B9;&#x5468;&#x56F4;&#x56DB;&#x4E2A;&#x65B9;&#x5411;&#x7684;&#x77ED;&#x677F;&#x9AD8;&#x5EA6;h1&#xFF0C;&#x7136;&#x540E;&#x4EE5;&#x8BE5;&#x77ED;&#x677F;&#x70B9;&#x4F5C;&#x4E3A;&#x8D77;&#x70B9;&#xFF0C;&#x8FDB;&#x884C;BFS&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x77ED;&#x677F;&#x70B9;&#x7684;&#x5468;&#x56F4;&#x56DB;&#x4E2A;&#x65B9;&#x5411;&#x7684;&#x77ED;&#x677F;&#x9AD8;&#x5EA6;h2 &lt;= h1&#xFF0C;&#x8BF4;&#x660E;h1&#x5C31;&#x662F;&#x6700;&#x7EC8;&#x7684;&#x77ED;&#x677F;&#x9AD8;&#x5EA6;&#xFF1B;&#x5426;&#x5219;&#xFF0C;&#x5C06;&#x8FD9;&#x4E9B;&#x70B9;&#x52A0;&#x5165;<strong>&#x4F18;&#x5148;&#x961F;&#x5217;</strong>&#x4E2D;&#xFF0C;&#x7EE7;&#x7EED;&#x53D6;<strong>&#x4F18;&#x5148;&#x961F;&#x5217;</strong>&#x4E2D;&#x7684;&#x77ED;&#x677F;&#x9AD8;&#x5EA6;&#x4F5C;&#x4E3A;&#x8D77;&#x70B9;&#xFF0C;&#x8FDB;&#x884C;BFS.</p>
 
                                 
                                 </section>
@@ -878,12 +895,12 @@ return <code>[3, 4]</code>.</p>
 
             
                 
-                <a href="33&81. Search in Rotated Sorted Array.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 33&81. Search in Rotated Sorted Array">
+                <a href="41. First Missing Positive.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 41. First Missing Positive">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="35. Search Insert Position.html" class="navigation navigation-next " aria-label="Next page: LeetCode 35. Search Insert Position">
+                <a href="44. Wildcard Matching.html" class="navigation navigation-next " aria-label="Next page: LeetCode 44. Wildcard Matching">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -894,7 +911,7 @@ return <code>[3, 4]</code>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode 34. Search for a Range","level":"2.33","depth":1,"next":{"title":"LeetCode 35. Search Insert Position","level":"2.34","depth":1,"path":"solutions/35. Search Insert Position.md","ref":"solutions/35. Search Insert Position.md","articles":[]},"previous":{"title":"LeetCode 33&81. Search in Rotated Sorted Array","level":"2.32","depth":1,"path":"solutions/33&81. Search in Rotated Sorted Array.md","ref":"solutions/33&81. Search in Rotated Sorted Array.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/34. Search for a Range.md","mtime":"2017-09-14T13:01:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-26T11:45:41.356Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 42&407. Trapping Rain Water","level":"2.40","depth":1,"next":{"title":"LeetCode 44. Wildcard Matching","level":"2.41","depth":1,"path":"solutions/44. Wildcard Matching.md","ref":"solutions/44. Wildcard Matching.md","articles":[]},"previous":{"title":"LeetCode 41. First Missing Positive","level":"2.39","depth":1,"path":"solutions/41. First Missing Positive.md","ref":"solutions/41. First Missing Positive.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/42&407. Trapping Rain Water.md","mtime":"2017-09-20T09:38:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-26T11:45:41.356Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

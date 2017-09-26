@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>LeetCode 8. String to Integer (atoi) · GitBook</title>
+        <title>LeetCode 38. Count and Say · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="9. Palindrome Number.html" />
+    <link rel="next" href="39&40&216&377. Combination Sum.html" />
     
     
-    <link rel="prev" href="7. Reverse Integer.html" />
+    <link rel="prev" href="37. Sudoku Solver.html" />
     
 
     </head>
@@ -215,7 +215,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.8" data-path="8. String to Integer-atoi.html">
+        <li class="chapter " data-level="2.8" data-path="8. String to Integer-atoi.html">
             
                 <a href="8. String to Integer-atoi.html">
             
@@ -592,7 +592,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.37" data-path="38. Count and Say.html">
+        <li class="chapter active" data-level="2.37" data-path="38. Count and Say.html">
             
                 <a href="38. Count and Say.html">
             
@@ -752,7 +752,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >LeetCode 8. String to Integer (atoi)</a>
+        <a href=".." >LeetCode 38. Count and Say</a>
     </h1>
 </div>
 
@@ -767,38 +767,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="leetcode-8-string-to-integer-atoi">LeetCode 8. String to Integer (atoi)</h2>
-<p>Implement atoi to convert a string to an integer.</p>
-<p><strong>Hint:</strong> Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.</p>
-<p><strong>Notes:</strong> It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.</p>
-<p><strong>Update (2015-02-10):</strong>
-The signature of the <code>C++</code> function had been updated. If you still see your function signature accepts a <code>const char *</code> argument, please click the reload button  to reset your code definition.</p>
-<p><br></p>
-<p>Four cases need to pay attention&#xFF1A;</p>
-<ul>
-<li>whitespaces</li>
-<li>sign</li>
-<li>overflow</li>
-<li>invalid input</li>
-</ul>
+                                <h2 id="leetcode-38-count-and-say">LeetCode 38. Count and Say</h2>
+<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
+<pre><code>1.     1
+2.     11
+3.     21
+4.     1211
+5.     111221
+</code></pre><p><code>1</code> is read off as <code>&quot;one 1&quot;</code> or <code>11</code>.
+<code>11</code> is read off as <code>&quot;two 1s&quot;</code> or <code>21</code>.
+<code>21</code> is read off as <code>&quot;one 2</code>, then <code>one 1&quot;</code> or <code>1211</code>.</p>
+<p>Given an integer <em>n</em>, generate the <em>n</em>th term of the count-and-say sequence.</p>
+<p>Note: Each term of the sequence of integers will be represented as a string.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: 1
+Output: &quot;1&quot;
+</code></pre><p><strong>Example 2:</strong></p>
+<pre><code>Input: 4
+Output: &quot;1211&quot;
+</code></pre><p><br></p>
+<p>&#x76F4;&#x63A5;&#x6309;&#x8FC7;&#x7A0B;&#x6C42;&#x3002;</p>
 <pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">myAtoi</span><span class="token punctuation">(</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">long</span> <span class="token keyword">long</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> n <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> sign <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos; &apos;</span><span class="token punctuation">)</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;+&apos;</span><span class="token punctuation">)</span> sign <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&apos;-&apos;</span><span class="token punctuation">)</span> sign <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> i<span class="token operator">++</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">int</span> MAX <span class="token operator">=</span> <span class="token number">0x7fffffff</span><span class="token punctuation">,</span> MIN <span class="token operator">=</span> <span class="token number">0x80000000</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> n <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> <span class="token string">&apos;0&apos;</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token string">&apos;9&apos;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            x <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token string">&apos;0&apos;</span><span class="token punctuation">;</span>
-            i<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> x <span class="token operator">&gt;</span> MAX<span class="token punctuation">)</span> <span class="token keyword">return</span> MAX<span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">-</span>x <span class="token operator">&lt;</span> MIN<span class="token punctuation">)</span> <span class="token keyword">return</span> MIN<span class="token punctuation">;</span>
+    string <span class="token function">countAndSay</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        n<span class="token operator">--</span><span class="token punctuation">;</span>
+        string pre <span class="token operator">=</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            string str <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> pre<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">char</span> pre_c <span class="token operator">=</span> pre<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">+</span>cnt <span class="token operator">&lt;</span> pre<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> pre<span class="token punctuation">[</span>i<span class="token operator">+</span>cnt<span class="token punctuation">]</span> <span class="token operator">==</span> pre_c<span class="token punctuation">)</span> cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+                str <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">to_string</span><span class="token punctuation">(</span>cnt<span class="token operator">*</span><span class="token number">10</span><span class="token operator">+</span>pre_c<span class="token operator">-</span><span class="token string">&apos;0&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                i <span class="token operator">+</span><span class="token operator">=</span> cnt<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            pre <span class="token operator">=</span> str<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>sign <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> x <span class="token operator">=</span> <span class="token operator">-</span>x<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> pre<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
@@ -829,12 +835,12 @@ The signature of the <code>C++</code> function had been updated. If you still se
 
             
                 
-                <a href="7. Reverse Integer.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 7. Reverse Integer">
+                <a href="37. Sudoku Solver.html" class="navigation navigation-prev " aria-label="Previous page: LeetCode 37. Sudoku Solver">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="9. Palindrome Number.html" class="navigation navigation-next " aria-label="Next page: LeetCode 9. Palindrome Number">
+                <a href="39&40&216&377. Combination Sum.html" class="navigation navigation-next " aria-label="Next page: LeetCode 39&40&216&377. Combination Sum">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -845,7 +851,7 @@ The signature of the <code>C++</code> function had been updated. If you still se
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"LeetCode 8. String to Integer (atoi)","level":"2.8","depth":1,"next":{"title":"LeetCode 9. Palindrome Number","level":"2.9","depth":1,"path":"solutions/9. Palindrome Number.md","ref":"solutions/9. Palindrome Number.md","articles":[]},"previous":{"title":"LeetCode 7. Reverse Integer","level":"2.7","depth":1,"path":"solutions/7. Reverse Integer.md","ref":"solutions/7. Reverse Integer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/8. String to Integer-atoi.md","mtime":"2017-09-06T07:25:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-26T11:45:41.356Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LeetCode 38. Count and Say","level":"2.37","depth":1,"next":{"title":"LeetCode 39&40&216&377. Combination Sum","level":"2.38","depth":1,"path":"solutions/39&40&216&377. Combination Sum.md","ref":"solutions/39&40&216&377. Combination Sum.md","articles":[]},"previous":{"title":"LeetCode 37. Sudoku Solver","level":"2.36","depth":1,"path":"solutions/37. Sudoku Solver.md","ref":"solutions/37. Sudoku Solver.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","-highlight","prism"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"ignore":["lang-text","text"]},"search-pro":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"solutions/38. Count and Say.md","mtime":"2017-09-15T05:31:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-09-26T11:45:41.356Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
